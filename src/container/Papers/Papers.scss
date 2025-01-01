@@ -1,0 +1,97 @@
+.app__papers {
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+}
+
+.search-container {
+  margin: 20px 0;
+  text-align: center;
+
+  input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: box-shadow 0.2s;
+
+    &:focus {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+  }
+}
+
+.app__profiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 items per row
+  gap: 1.5rem;
+  margin-top: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); // 2 items on medium screens
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // 1 item on small screens
+  }
+}
+
+.app__profiles-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  img {
+    width: 100%;
+    height: auto;         /* Keeps the aspect ratio intact */
+  object-fit: contain;  /* Ensures the whole image fits within the container without distortion */
+  max-height: 250px;    /* Limit the height of the image to prevent overflow */
+  border-radius: 8px;   /* Optional: gives the image rounded corners */
+  margin-bottom: 16px;  /* Optional: space below the image */
+  visibility: visible; 
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: left;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #555;
+    padding: 5px 15px;
+    margin: 0;
+    text-align: left;
+  }
+
+  .btn {
+    display: inline-block;
+    margin: 10px 15px;
+    padding: 8px 15px;
+    font-size: 0.85rem;
+    color: #fff;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      background: #2c81ba;
+    }
+  }
+}

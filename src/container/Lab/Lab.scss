@@ -1,0 +1,158 @@
+.app__lab {
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+
+  .head-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+}
+.app_lab-portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Tambahan untuk memaksimalkan ruang */
+  gap: 2rem; /* Jarak antar elemen */
+  align-items: flex-start;
+
+  .app_lab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsif fleksibel */
+    flex: 1 1 calc(33.333% - 2rem); /* 3 item per baris pada desktop */
+
+    @media screen and (max-width: 1199px) and (min-width: 768px) {
+      flex: 1 1 calc(50% - 2rem); /* 2 item pada tablet */
+    }
+
+    @media screen and (max-width: 767px) {
+      flex: 1 1 100%; /* 1 item pada mobile */
+    }
+
+    .app_lab-img {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5rem;
+        object-fit: contain;
+        background-color: white; /* Tambahkan latar belakang untuk gambar default */
+
+      }
+    }
+
+    .app_lab-content {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 1rem;
+        color: #333;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; /* Potong jika lebih panjang */
+        max-width: 100%; /* Sesuaikan dengan lebar item */
+      }
+    
+      .see-more-btn {
+        font-size: 1rem;
+        color: #528af3;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        text-align: left;
+    
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+// Overlay Styling
+.modal-overlay {
+  @apply fixed inset-0 z-[9999] grid place-items-center bg-black bg-opacity-60 backdrop-blur-sm;
+}
+
+// Modal Styling
+.modal-content {
+  @apply relative m-4 w-3/4 max-w-3xl h-auto max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl;
+
+  .modal-header {
+    @apply flex items-center justify-between p-4 text-lg font-semibold text-gray-800 border-b border-gray-200;
+
+    .close-btn {
+      @apply text-gray-600 hover:text-gray-800 cursor-pointer text-xl;
+    }
+  }
+
+  .modal-body {
+    @apply p-4;
+
+    img {
+      @apply w-full max-h-96 object-contain rounded-md mb-4;
+    }
+
+    p {
+      @apply text-gray-700 text-sm leading-relaxed;
+    }
+  }
+
+  .modal-footer {
+    @apply flex justify-end gap-4 p-4 border-t border-gray-200;
+
+    .modal-action-btn {
+      @apply px-4 py-2 rounded-md text-sm font-medium;
+
+      &.primary {
+        @apply bg-blue-500 text-white shadow hover:bg-blue-600;
+      }
+
+      &.secondary {
+        @apply bg-gray-100 text-gray-600 hover:bg-gray-200;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .modal-content {
+    @apply w-full max-w-md;
+  }
+}
+
+@media (max-width: 640px) {
+  .modal-content {
+    @apply m-2 p-2;
+
+    .modal-header,
+    .modal-footer {
+      @apply p-2;
+    }
+
+    .modal-body p {
+      @apply text-sm;
+    }
+  }
+}

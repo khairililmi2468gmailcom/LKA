@@ -1,0 +1,82 @@
+.app__footer {
+  flex: 1;
+  width: 100%;
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: #f9f9f9;
+
+  .head-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+
+    span {
+      color: #25d366; // WhatsApp color
+    }
+  }
+
+  .app__footer-info {
+    margin-top: 2rem;
+
+    .app__footer-whatsapp,
+    .app__footer-email,
+    .app__footer-google {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 0.5rem; // Added margin to space them out
+    }
+
+    .app__footer-whatsapp {
+      background-color: #25d366; // WhatsApp color
+      &:hover {
+        background-color: #1ebe5d;
+        transform: scale(1.05);
+      }
+    }
+
+    .app__footer-email {
+      background-color: #d93025; // Gmail color
+      &:hover {
+        background-color: #c1351d; // Darker Gmail hover color
+        transform: scale(1.05);
+      }
+    }
+
+    .app__footer-google {
+      background-color: #673ab7; // Google Forms purple color
+      &:hover {
+        background-color: #5e35b1; // Darker Google Forms hover color
+        transform: scale(1.05);
+      }
+    }
+
+    .contact-icon {
+      font-size: 1.8rem;
+    }
+  }
+
+  // Responsive: Stack buttons on smaller screens
+  @media (max-width: 768px) {
+    .app__footer-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app__footer-whatsapp,
+    .app__footer-email,
+    .app__footer-google {
+      width: 100%;
+      margin: 0.5rem 0; // Add vertical margin on smaller screens
+    }
+  }
+}

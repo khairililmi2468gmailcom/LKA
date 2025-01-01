@@ -1,0 +1,38 @@
+.bg-white {
+  background-color: #ffffff;
+  max-width: 100%; /* Agar lebar tetap tidak berubah */
+  overflow: hidden; /* Menghindari overflow */
+}
+
+.testimonial-text {
+  word-wrap: break-word; /* Agar teks panjang terbungkus */
+}
+
+
+.dark:bg-gray-900 {
+  background-color: #1a202c;
+}
+
+.text-gray-400 {
+  color: #a0aec0;
+}
+
+.text-gray-900 {
+  color: #1a202c;
+}
+
+.dark\:text-white {
+  color: #ffffff;
+}
+
+.dark\:text-gray-600 {
+  color: #718096;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.dark\:text-gray-400 {
+  color: #9ca3af;
+}
