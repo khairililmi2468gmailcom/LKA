@@ -30,7 +30,7 @@
     "react-scripts": "5.0.1",
     "react-tooltip": "^5.28.0",
     "web-vitals": "^4.2.4",
-    "sass": "^1.58.3"  // Mengganti node-sass dengan sass
+    "node-sass": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -63,6 +63,6 @@
     "tailwindcss": "^3.4.17"
   },
   "engines": {
-    "node": ">=20"  // Menentukan versi Node.js minimal yang digunakan
+    "node": ">=20" 
   }
 }
