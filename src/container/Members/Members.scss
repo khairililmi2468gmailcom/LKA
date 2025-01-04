@@ -1,0 +1,153 @@
+.app__members {
+    width: 100%;
+    padding: 40px;
+
+    .head-text {
+        font-size: 2.5rem; // Membesarkan heading utama
+        text-align: center;
+        margin-bottom: 40px;
+
+        span {
+            color: var(--secondary-color);
+        }
+    }
+
+    .app__members-list {
+        display: flex;
+        flex-direction: column;
+        gap: 40px; // Menambahkan jarak antar item
+    }
+
+    .app__members-item {
+        display: flex;
+        flex-direction: row; // Default mode: horizontal layout
+        background: #fff;
+        border-radius: 15px; // Membuat sudut container lebih halus
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        padding: 30px;
+        transition: all 0.3s ease;
+        gap: 2rem;
+        align-items: center;
+
+        &:hover {
+            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
+        }
+
+        .app__members-item-left {
+            flex: 0 0 180px; // Foto default di sebelah kiri
+            margin-right: 30px;
+
+            img {
+                width: 300px; // Ukuran foto besar untuk desktop
+                height: 180px;
+                border-radius: 15px;
+                object-fit: contain; // Semua foto tampil penuh
+                border: 2px solid #ddd;
+            }
+        }
+
+        .app__members-item-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .app__members-name {
+                font-size: 2rem; // Membesarkan nama
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .app__members-role {
+                font-size: 1.2rem; // Membesarkan role/posisi
+                color: var(--secondary-color);
+                margin-bottom: 15px;
+            }
+
+            .app__members-description {
+                font-size: 1rem; // Membesarkan deskripsi
+                color: #666;
+                margin-bottom: 20px;
+                line-height: 1.5; // Menambahkan spasi antar baris
+            }
+
+            .app__members-contact {
+                display: flex;
+                gap: 15px; // Jarak antar link
+                flex-wrap: wrap;
+
+                a {
+                    font-size: 1.2rem;
+                    color: var(--secondary-color);
+                    font-weight: bold;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .read-more-btn {
+        background: none;
+        border: none;
+        color: var(--secondary-color);
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 5px;
+    
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    // Mode Tablet dan Android
+    @media screen and (max-width: 768px) {
+        .app__members-item {
+            flex-direction: column; // Foto pindah ke atas
+            align-items: center;
+            padding: 20px;
+            gap:0px;
+
+            .app__members-item-left {
+                margin-right: 0; // Hilangkan jarak di kanan
+                margin-bottom: 20px; // Beri jarak ke bawah
+                flex: 0 0 auto;
+
+                img {
+                    width: 180px; // Sesuaikan dengan lebar container
+                    height: 180px; // Sesuaikan tinggi otomatis
+                    max-width: 280px; // Maksimal lebar untuk menjaga konsistensi
+                    border-radius: 15px;
+                }
+            }
+
+            .app__members-item-right {
+                text-align: center; // Pusatkan teks untuk mode mobile
+                align-items: center;
+
+                .app__members-name {
+                    font-size: 1.8rem; // Sedikit lebih kecil
+                }
+
+                .app__members-role {
+                    font-size: 1.2rem;
+                }
+
+                .app__members-description {
+                    font-size: 1rem;
+                    margin-bottom: 15px;
+                }
+
+                .app__members-contact {
+                    justify-content: center;
+
+                    a {
+                        font-size: 1rem; // Sedikit lebih kecil
+                    }
+                }
+            }
+        }
+    }
+}

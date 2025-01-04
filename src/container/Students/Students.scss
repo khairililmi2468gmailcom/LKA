@@ -1,0 +1,231 @@
+.app__students {
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.app__students-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem 0 2rem;
+
+    .app__students-filter-item {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: #fff;
+        color: #000;
+        font-weight: 800;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 0.5rem;
+
+        &:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        @media screen and (min-width: 2000px) {
+            padding: 1rem 2rem;
+            border-radius: 0.85rem;
+        }
+    }
+
+    .item-active {
+        background-color: var(--secondary-color);
+        color: #fff;
+    }
+}
+
+.app__students-portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.app__students-item-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-basis: calc(25% - 10px);  /* 4 items per row */
+    box-sizing: border-box;
+    height: auto;
+
+    @media screen and (max-width: 1024px) {
+        flex-basis: calc(50% - 10px); /* 2 items per row on tablets */
+    }
+
+    @media screen and (max-width: 768px) {
+        flex-basis: calc(50% - 20px); /* 2 items per row on mobile with margin */
+        margin: 10px; /* Margin for spacing between items */
+    }
+}
+
+.app__students-item-image {
+    flex-shrink: 0;
+    width: 150px; /* Slightly larger width */
+    height: 150px; /* Same height */
+    overflow: hidden;
+    border-radius: 8px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* This will ensure the entire image is visible without cropping */
+    }
+}
+
+.app__students-item-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+
+    .app__students-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .app__students-bidang {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    .app__students-npm {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    .read-more {
+        margin-top: 10px;
+        color: var(--secondary-color);
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.app_students-img {
+    width: 100%;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* To ensure the entire image is displayed */
+    }
+
+    @media screen and (min-width: 2000px) {
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .app_students-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .app_students-item {
+        width: 100%;
+        margin: 1rem;
+    }
+}
+
+/* Ensure items have proper layout in mobile view */
+@media screen and (max-width: 768px) {
+    .app__students-item-container {
+        flex-direction: row;  /* Ensure items are in a row */
+        flex-basis: calc(50% - 20px); /* 2 items per row, each item takes 50% of width with margin */
+        margin: 10px;  /* Add margin for spacing between items */
+    }
+
+    .app__students-item-content {
+        padding: 1rem;  /* Add padding for better spacing on mobile */
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 600px;  /* Ukuran maksimal modal */
+    width: 100%;
+    min-height: 400px;  /* Menetapkan tinggi minimum untuk modal */
+    text-align: center;
+    position: relative;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    overflow: hidden;  /* Agar gambar tidak mengubah ukuran modal */
+    display: flex;
+    flex-direction: column;  /* Menjaga agar konten dan gambar tampil secara vertikal */
+    justify-content: space-between;  /* Membantu menjaga jarak antar elemen */
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10; /* Pastikan close button tetap di atas konten modal */
+}
+
+.modal img {
+    width: 100%;
+    height: auto;  /* Pastikan gambar proporsional */
+    max-width: 100%;  /* Batas maksimal lebar gambar */
+    max-height: 300px;  /* Tentukan tinggi gambar agar tidak terlalu besar */
+    object-fit: contain;  /* Agar gambar tetap proporsional dan tidak terpotong */
+    border-radius: 8px;  /* Menjaga agar sudut gambar tetap membulat */
+    margin-bottom: 20px;  /* Spasi antara gambar dan konten lainnya */
+}
+
+.modal-content {
+    flex-grow: 1;
+    padding-top: 10px;
+    color: #333;
+}
+
+.no-data-container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #777;
+    font-size: 1.2rem;
+}
+
