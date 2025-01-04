@@ -96,7 +96,9 @@ const Lab = () => {
             onClick={() => handleItemClick(item)} // Klik item harus memanggil handleItemClick dengan data yang benar
           >
             <div className="app_lab-img">
-              <img src={item.imgUrl} alt={item.title} />
+              <img src={item.imgUrl} alt={item.title} 
+              onError={(e) => (e.target.src = "/images/default.svg")}
+              />
             </div>
             <div className="app_lab-content">
               <h4 className="bold-text">{item.title}</h4>
