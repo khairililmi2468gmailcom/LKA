@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./Members.scss";
+import { generateDriveImageUrl } from "../../utils/utils";
 
 const SPREADSHEET_ID = "1p7aHoR95gaTpaPH4kh5YPdgaPEQjuNBCJmRsBz5ss-A";
 const RANGE = "Form Responses 1!B:AD";
@@ -23,20 +24,13 @@ const Members = () => {
                     const rows = response.data.values;
                     if (rows) {
                         const membersData = rows.slice(1).map((row, index) => {
-                            if (row[0] !== "Members") return null;
-
-                            const imageUrl = row[27] || "";
-                            const imageId = imageUrl.match(/id=([\w-]{25,})/)?.[1] || null;
-                            const imageDriveUrl = imageId
-                                ? `https://www.googleapis.com/drive/v3/files/${imageId}?alt=media&key=${API_KEY}`
-                                : "/images/default.svg";
-
+                            if (row[0] !== "Members") return null;    
                             return {
                                 id: index,
                                 name: row[21] || `Member ${index + 1}`,
                                 role: row[22] || "N/A",
                                 description: row[23] || "N/A",
-                                photo: imageDriveUrl,
+                                photo: generateDriveImageUrl(row[27] || "", API_KEY),
                                 website: row[24] || "N/A",
                                 email: row[25] || "N/A",
                                 category: row[26] || "General",

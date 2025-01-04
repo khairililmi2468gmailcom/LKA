@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="app__footer-info">
         {/* WhatsApp Contact */}
         <a
-          href="https://wa.me/6281234567890"
+          href="https://wa.me/625370984854"
           target="_blank"
           rel="noopener noreferrer"
           className="app__footer-contact app__footer-whatsapp"
@@ -25,7 +25,7 @@ const Footer = () => {
 
         {/* Email Contact */}
         <a
-          href="mailto:admin@example.com"
+          href="mailto:misbullah@cs.usk.ac.id"
           target="_blank"
           rel="noopener noreferrer"
           className="app__footer-contact app__footer-email"
@@ -36,7 +36,7 @@ const Footer = () => {
 
         {/* Google Form */}
         <a
-          href="https://forms.gle/your-google-form-link"
+          href="https://forms.gle/FxsQJn46x48HhLsm6"
           target="_blank"
           rel="noopener noreferrer"
           className="app__footer-contact app__footer-google"

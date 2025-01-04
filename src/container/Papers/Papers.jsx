@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./Papers.scss";
+import { generateDriveImageUrl } from "../../utils/utils";
 
 const SPREADSHEET_ID = "1p7aHoR95gaTpaPH4kh5YPdgaPEQjuNBCJmRsBz5ss-A";
 const API_KEY = "AIzaSyBSDF4KF73HLzyq2Gamqx0vl46Tsc1nLNw";
@@ -28,23 +29,14 @@ const Papers = () => {
             const filteredData = rows
               .filter((row) => row[0] === "Papers")
               .map((row, index) => {
-                const imageUrl = row[7] || ""; // Column I
-                // console.log(`Row ${index}, URL dari spreadsheet:`, imageUrl);
-  
-                const imageId = imageUrl.match(/id=([\w-]{25,})/)?.[1] || null;
-                // console.log(`Row ${index}, ID dari URL gambar:`, imageId);
-  
-                const driveImageUrl = imageId
-                  ? `https://www.googleapis.com/drive/v3/files/${imageId}?alt=media&key=${API_KEY}`
-                  : "/images/default.svg";
-                // console.log(`Row ${index}, Drive Image URL:`, driveImageUrl);
-  
+             
+      
                 return {
                   title: row[2] || "Untitled",
                   description: row[5] || "No description available",
                   authors: row[3] || "Unknown authors",
                   journal: row[4] || "Unknown journal",
-                  imgUrl: driveImageUrl,
+                  imgUrl: generateDriveImageUrl(row[7] || "", API_KEY),
                   link: row[6] || "#", // Column I (paper link)
                 };
               });
