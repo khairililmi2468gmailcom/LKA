@@ -9,3 +9,5 @@ export { default as Header } from "./Header/Header";
 export { default as Lab } from "./Lab/Lab";
 export { default as Testimonial } from "./Testimonial/Testimonial";
 export { default as Alumni } from "./Alumni/Alumni";
+export {default as Members} from "./Members/Members";
+export {default as students} from "./Students/Students";

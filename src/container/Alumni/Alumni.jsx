@@ -34,10 +34,11 @@ const Alumni = () => {
               if (row[0] !== 'Alumni') return null; // Jika kolom B tidak berisi 'Alumni', skip baris ini
 
               // Menyusun data alumni
-              const imageUrl = row[13] || ''; // Kolom N untuk gambar, pastikan tidak null
-              const imageId = imageUrl && imageUrl.match(/id=([a-zA-Z0-9_-]+)/) ? imageUrl.match(/id=([a-zA-Z0-9_-]+)/)[1] : null;
-              const imageDriveUrl = imageId ? `https://drive.google.com/uc?export=view&id=${imageId}` : "/images/default.svg";
-
+              const imageUrl = row[12] || ''; // Kolom N untuk gambar, pastikan tidak null
+              const imageId = imageUrl.match(/id=([\w-]{25,})/)?.[1] || null;
+              const imageDriveUrl = imageId
+              ? `https://www.googleapis.com/drive/v3/files/${imageId}?alt=media&key=${API_KEY}`
+              : "/images/default.svg";
               // Menyusun objek alumni
               return {
                 name: row[8] || `Alumni ${index + 1}`, // Kolom J (Nama)
@@ -133,7 +134,8 @@ const Alumni = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="app_alumni-img app__flex">
-                <img src={alumni.imgUrl} alt={`${alumni.name} profile`} />
+                <img src={alumni.imgUrl} alt={`${alumni.name} profile`} 
+                onError={(e) => (e.target.src = "/images/default.svg")}/>
               </div>
 
               <div className="app_alumni-content app__flex">

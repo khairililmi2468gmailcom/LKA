@@ -79,7 +79,7 @@ const Papers = () => {
   return (
     <>
       <h2 className="head-text">
-        OUR <span>PAPERS</span>
+        OUR <span>PUBLICATIONS</span>
         <br />
       </h2>
 
@@ -144,6 +144,6 @@ const Papers = () => {
 
 export default AppWrap(
   MotionWrap(Papers, "app__papers"),
-  "papers",
+  "publications",
   "app__whitebg"
 );

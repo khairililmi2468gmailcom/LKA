@@ -5,9 +5,11 @@ import { AiFillGithub } from "react-icons/ai";
 // Navbar links
 const navbar_links = [
   "home",
-  "papers",
+  "members",
+  "publications",
+  "students",
   "alumni",
-  "lab",
+  "research area",
   "testimonial",
   "contact",
 ];

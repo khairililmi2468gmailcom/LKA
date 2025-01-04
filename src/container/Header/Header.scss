@@ -33,7 +33,6 @@
     padding: 6rem 1rem 2rem;
   }
 }
-
 .app__header-info {
   flex: 0.65;
   display: flex;
@@ -42,9 +41,28 @@
   align-items: flex-start;
   height: 100%;
 
-  @media screen and (max-width: 2000px) {
-    width: 100%;
-    margin-right: 0;
+  .tag-cmp {
+    flex-direction: column;
+    margin-top: 3rem;
+
+    .header-description {
+      color: #353535;  // White text for contrast against the gray background
+      font-size: 1.25rem;  // Make the description text more readable
+      font-weight: 500;  // Make the text slightly bolder
+      line-height: 1.7;  // Improve line spacing for better readability
+      text-align: left;  // Align the text to the left for a professional look
+      text-transform: none;  // Remove the uppercase style for a more natural reading experience
+
+      // Add some padding and margin for better spacing
+      margin-top: 1rem;
+      padding: 0 1rem;
+      max-width: 800px;
+
+      @media screen and (max-width: 1200px) {
+        font-size: 1rem;  // Smaller font on smaller screens
+        text-align: center;  // Center-align the text on smaller screens
+      }
+    }
   }
 }
 
@@ -63,6 +81,7 @@
     flex-direction: row;
     width: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);  // Darken the background of the badges for better contrast
   }
 
   .tag-cmp {
@@ -73,6 +92,7 @@
       width: 100%;
       text-transform: uppercase;
       text-align: right;
+      color: #303030;  // Ensure this text is also white to match the header
     }
   }
 

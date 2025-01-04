@@ -77,7 +77,7 @@ const Lab = () => {
       {/* Head text */}
       <div className="py-8">
         <h2 className="head-text">
-          MY <span>LAB</span>
+          OUR <span>RESEARCH AREA</span>
         </h2>
         <span>Our Research Activities, Recognition and Awards</span>
       </div>
@@ -116,4 +116,4 @@ const Lab = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Lab, "app__lab"), "lab", "app__whitebg");
+export default AppWrap(MotionWrap(Lab, "app__lab"), "research area", "app__whitebg");

@@ -37,10 +37,13 @@ const Header = () => {
           </div>
 
           <div className="tag-cmp app__flex">
-            <p className="p-text">LKA (Lab Kreatifitas Alim Misbullah) - Universitas Syiah Kuala. Led by Alim Misbullah, S.Si., M.S (IEEE Senior Member | Associate Professor). Our research interests are computer vision, deep learning, biomedical imaging, and intelligent surveillance system. Developer</p>
+            <p className="p-text header-description">
+              LKA (Lab Kreatifitas Alim Misbullah) - Universitas Syiah Kuala. Led by Alim Misbullah, S.Si., M.S., an expert in Data Mining, AI, and Machine Learning. Our research focuses on Computer Vision, Deep Learning, Biomedical Imaging, and Intelligent Surveillance Systems, striving for excellence in cutting-edge research and innovation within these transformative fields.
+            </p>
           </div>
         </div>
       </motion.div>
+
 
       {/* My Profile */}
       <motion.div
@@ -65,7 +68,7 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[images.javascript,images.python, images.pytorch, images.tensorflow].map((circle, index) => (
+        {[images.javascript, images.python, images.pytorch, images.tensorflow].map((circle, index) => (
           <div className="circle-cmp app__flex" key={`circle-${index}`}>
             <img src={circle} alt="Circle" />
           </div>
