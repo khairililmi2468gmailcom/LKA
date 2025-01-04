@@ -7,14 +7,14 @@ const Footer = () => {
   return (
     <div className="app__footer">
       <h2 className="head-text">
-      Butuh Bantuan Menyelesaikan Tugas Akhir? 
-      <span> Kami Siap Memandu!</span>
+        Butuh Bantuan Menyelesaikan Tugas Akhir?
+        <span> Kami Siap Memandu!</span>
       </h2>
 
       <div className="app__footer-info">
         {/* WhatsApp Contact */}
         <a
-          href="https://wa.me/625370984854"
+          href="https://wa.me/6285370984854"
           target="_blank"
           rel="noopener noreferrer"
           className="app__footer-contact app__footer-whatsapp"
@@ -22,6 +22,7 @@ const Footer = () => {
           <FaWhatsapp className="contact-icon" />
           <span>Hubungi via WhatsApp</span>
         </a>
+
 
         {/* Email Contact */}
         <a
