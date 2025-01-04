@@ -41,12 +41,11 @@ const Papers = () => {
   
                 return {
                   title: row[2] || "Untitled",
-                  description: row[3] || "No description available",
-                  authors: row[4] || "Unknown authors",
-                  year: row[5] || "Unknown year",
-                  journal: row[6] || "Unknown journal",
+                  description: row[5] || "No description available",
+                  authors: row[3] || "Unknown authors",
+                  journal: row[4] || "Unknown journal",
                   imgUrl: driveImageUrl,
-                  link: row[8] || "#", // Column I (paper link)
+                  link: row[6] || "#", // Column I (paper link)
                 };
               });
             setPapers(filteredData);
@@ -117,7 +116,7 @@ const Papers = () => {
               <strong>Authors:</strong> {paper.authors}
             </p>
             <p>
-              <strong>Published:</strong> {paper.year} in {paper.journal}
+              <strong>Published:</strong> {paper.journal}
             </p>
             <p>
               {expandedPaper === index
