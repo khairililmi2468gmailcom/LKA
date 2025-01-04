@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AiFillEye, AiFillGithub, AiFillLinkedin } from "react-icons/ai";  // Mengimpor ikon LinkedIn juga
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";  // Hapus AiFillEye yang tidak digunakan
 import { motion } from "framer-motion";
 import axios from "axios";
 
@@ -15,7 +15,6 @@ const Alumni = () => {
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [alumni, setAlumni] = useState([]);
   const [filterAlumni, setFilterAlumni] = useState([]);
-  const [error, setError] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);  // State untuk kontrol modal
   const [selectedAlumni, setSelectedAlumni] = useState(null); // State untuk alumni yang dipilih
 
@@ -25,18 +24,12 @@ const Alumni = () => {
         const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
         const response = await axios.get(url);
 
-        // console.log("Response status: ", response.status);
-        // console.log("Data from Google Sheets:", response.data);
-
         if (response.status === 200) {
           const rows = response.data.values;
-          // console.log("Data rows from Spreadsheet:", rows);
 
           if (rows) {
             // Menyaring data berdasarkan kolom B yang berisi 'Alumni' dan menghindari nilai placeholder
             const alumniData = rows.slice(1).map((row, index) => {
-              // console.log("Processing row:", row); // Debug log untuk setiap baris
-
               // Pastikan data hanya diproses jika kolom B berisi 'Alumni'
               if (row[0] !== 'Alumni') return null; // Jika kolom B tidak berisi 'Alumni', skip baris ini
 
@@ -57,17 +50,14 @@ const Alumni = () => {
               };
             }).filter(Boolean); // Hapus nilai null yang dihasilkan oleh baris yang tidak sesuai atau tidak lengkap
 
-            // console.log("Filtered Alumni Data:", alumniData); // Log alumni data setelah difilter
-
             setAlumni(alumniData);
             setFilterAlumni(alumniData);
           }
         } else {
-          setError("Failed to fetch data from Google Sheets.");
+          console.error("Failed to fetch data from Google Sheets.");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
-        setError("Failed to fetch data. Please check your API Key and Spreadsheet permissions.");
       }
     };
 
@@ -143,7 +133,7 @@ const Alumni = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="app_alumni-img app__flex">
-                <img src={alumni.imgUrl} alt={alumni.name} />
+                <img src={alumni.imgUrl} alt={`${alumni.name} profile`} />
               </div>
 
               <div className="app_alumni-content app__flex">
@@ -178,8 +168,8 @@ const Alumni = () => {
             <div className="flex flex-col items-center">
               <img
                 src={selectedAlumni.imgUrl}
-                alt={selectedAlumni.name}
-                className="w-40 h-40 object-cover rounded-full border-4 border-gray-300 mb-4" // Menambahkan border pada gambar
+                alt={`${selectedAlumni.name} profile`}  // Memperbaiki alt tag
+                className="w-40 h-40 object-cover rounded-full border-4 border-gray-300 mb-4"
               />
               <h2 className="text-xl font-bold">{selectedAlumni.name}</h2>
               <p className="text-gray-600 text-sm">{selectedAlumni.npm}</p>
@@ -209,7 +199,7 @@ const Alumni = () => {
         </div>
       )}
     </>
-      );
+  );
 };
 
 export default AppWrap(MotionWrap(Alumni, "app__alumni"), "alumni", "app__primarybg");

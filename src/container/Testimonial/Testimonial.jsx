@@ -39,14 +39,13 @@ const dummyTestimonials = [
   { feedback: "Bimbingan RPL membuat saya lebih percaya diri dalam menyelesaikan pengkodean aplikasi untuk tugas akhir.", author: "Anonymous", role: "RPL" },
 ];
 
-
 const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % dummyTestimonials.length);
-    }, 4000); // Change every 5 seconds
+    }, 4000); // Change every 4 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -76,7 +75,7 @@ const Testimonial = () => {
             <img
               className="w-6 h-6 rounded-full"
               src="https://via.placeholder.com/40"
-              alt="profile picture"
+              alt="Anonymous profile"  // Memperbaiki alt
             />
             <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
               <div className="pr-3 font-medium text-gray-900 dark:text-white">
