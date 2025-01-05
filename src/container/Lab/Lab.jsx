@@ -24,7 +24,7 @@ const Lab = () => {
           if (rows) {
             const labData = rows
               .slice(1) // Mengabaikan header
-              .filter((row) => row[0] === "My Lab") // Filter untuk "My Lab"
+              .filter((row) => row[0] === "Research Area") // Filter untuk "My Lab"
               .map((row) => {
                 const imgUrl = row[15] || ""; // Kolom Q
                 const imageId = imgUrl && imgUrl.match(/id=([a-zA-Z0-9_-]+)/) ? imgUrl.match(/id=([a-zA-Z0-9_-]+)/)[1] : null;

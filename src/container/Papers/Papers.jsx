@@ -27,7 +27,7 @@ const Papers = () => {
   
           if (rows) {
             const filteredData = rows
-              .filter((row) => row[0] === "Papers")
+              .filter((row) => row[0] === "Publications")
               .map((row, index) => {
              
       
